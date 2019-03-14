@@ -125,7 +125,7 @@ sys_getsystemcalladdr(void)
 
 int sys_setpriority(void)
 {
-  int argument1;
-  argint(0, &argument1);
-  return argument1;
+  int priority;
+  argint(0, &priority);
+  return priority;
 }

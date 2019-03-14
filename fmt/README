@@ -1,7 +1,3 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c879dbd7d669419e974e6d285beadabe)](https://www.codacy.com/app/pasindubawantha/xv6-unix-like-operating-system?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xv6-teaching-kernal/xv6-unix-like-operating-system&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/xv6-teaching-kernal/xv6-unix-like-operating-system.svg?branch=master)](https://travis-ci.org/xv6-teaching-kernal/xv6-unix-like-operating-system)
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://github.com/xv6-teaching-kernal/xv6-unix-like-operating-system/blob/master/LICENSE)
-
 xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix
 Version 6 (v6).  xv6 loosely follows the structure and style of v6,
 but is implemented for a modern x86-based multiprocessor using ANSI C.
