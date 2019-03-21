@@ -360,7 +360,8 @@ sys_chdir(void)
 {
   char *path;
   struct inode *ip;
-
+  // argstr(0, &path);
+  // panic(path);
   if(argstr(0, &path) < 0 || (ip = namei(path)) == 0)
     return -1;
   ilock(ip);
@@ -422,4 +423,17 @@ sys_pipe(void)
   fd[0] = fd0;
   fd[1] = fd1;
   return 0;
+}
+
+int
+sys_getinodesize(void)
+{
+  char *path;
+  uint size;
+  argstr(0, &path);
+  if(sys_chdir() == -1)
+    return -1;
+  size = proc->cwd->size;
+  // panic(path);
+  return size;
 }
