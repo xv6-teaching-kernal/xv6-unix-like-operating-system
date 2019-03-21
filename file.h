@@ -16,7 +16,7 @@ struct inode {
   int ref;            // Reference count
   int flags;          // I_BUSY, I_VALID
 
-  short type;         // copy of disk inode
+  short type;         // copy of disk inode already in the dinode struct
   short major;
   short minor;
   short nlink;

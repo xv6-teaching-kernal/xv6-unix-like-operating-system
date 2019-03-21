@@ -19,8 +19,8 @@ struct superblock {
   uint nlog;         // Number of log blocks
 };
 
-#define NDIRECT 12
-#define NINDIRECT (BSIZE / sizeof(uint))
+#define NDIRECT 12 // 12 direct blocks
+#define NINDIRECT (BSIZE / sizeof(uint)) // number of addresses in an inderect block
 #define MAXFILE (NDIRECT + NINDIRECT)
 
 // On-disk inode structure

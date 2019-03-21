@@ -27,7 +27,7 @@ static void itrunc(struct inode*);
 void
 readsb(int dev, struct superblock *sb)
 {
-  struct buf *bp;
+  struct buf *bp; // buffer is used to read-write to hdd disk
   
   bp = bread(dev, 1);
   memmove(sb, bp->data, sizeof(*sb));
