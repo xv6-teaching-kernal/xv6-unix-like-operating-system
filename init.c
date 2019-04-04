@@ -27,7 +27,12 @@ main(void)
       exit();
     }
     if(pid == 0){
+      // pid = fork();
+      // if(pid == 0) {
+      //   exec("myprog", argv);
+      // }
       exec("sh", argv);
+      // exec("myprog", argv);
       printf(1, "init: exec sh failed\n");
       exit();
     }

@@ -457,3 +457,6 @@ procdump(void)
 }
 
 
+struct proc* get_proc_tabel(void){
+  return ptable.proc;
+}

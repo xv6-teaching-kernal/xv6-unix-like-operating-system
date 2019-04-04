@@ -132,3 +132,58 @@ int sys_setpriority(void)
   proc->priority = priority;
   return proc->priority;
 }
+
+int sys_myps(void)
+{
+
+  struct proc *proctable;
+  struct proc *proct_start;
+
+  int proc_buffer_size ;
+  char *proc_buffer;
+  char *proc_buffer_start;
+  if((argint(0, &proc_buffer_size)<0) || (argptr(1, &proc_buffer,proc_buffer_size)<0)){
+    return -1;
+  }
+  proctable = get_proc_tabel();
+  proct_start = proctable;
+  
+  proc_buffer_start = proc_buffer;
+
+  while( (proc_buffer + proc_buffer_size > proc_buffer_start) && (proctable + sizeof(proc) > proct_start) && proct_start->pid != 0){
+    *(uint*)proc_buffer_start = proct_start->sz;
+    proc_buffer_start+=sizeof(uint);
+
+    *(pde_t**)proc_buffer_start = proct_start->pgdir;
+    proc_buffer_start+=sizeof(pde_t*);
+
+    // *(char**)proc_buffer_start = proct_start->kstack;
+    // proc_buffer_start+=sizeof(char*);
+
+    // *(enum procstate*)proc_buffer_start = proct_start->state;
+    // proc_buffer_start+=sizeof(enum procstate);
+
+    *(volatile int *)proc_buffer_start = proct_start->pid;
+    proc_buffer_start+=sizeof(volatile int);
+
+    *(int *)proc_buffer_start = proct_start->killed;
+    proc_buffer_start+=sizeof(int);
+
+    *(void **)proc_buffer_start = proct_start->chan;
+    proc_buffer_start+=sizeof(void*);
+
+    // for(int i = 0;i<16;i++){
+    //   *(char *)proc_buffer_start = (&proct_start->name + sizeof(char));
+    //   proc_buffer_start+=sizeof(char);
+    // }
+
+    *(int *)proc_buffer_start = proct_start->priority;
+    proc_buffer_start+=sizeof(int);
+
+    proct_start++;
+  }
+
+
+  return 1;
+
+}

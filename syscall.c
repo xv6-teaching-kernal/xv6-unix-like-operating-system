@@ -105,6 +105,7 @@ extern int sys_getkernelvariaddr(void);
 extern int sys_getsystemcalladdr(void);
 extern int sys_setpriority(void);
 extern int sys_getinodesize(void);
+extern int sys_myps(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -135,6 +136,7 @@ static int (*syscalls[])(void) = {
 [SYS_getsystemcalladdr] sys_getsystemcalladdr,
 [SYS_setpriority] sys_setpriority,
 [SYS_getinodesize] sys_getinodesize,
+[SYS_myps] sys_myps,
 };
 
 void

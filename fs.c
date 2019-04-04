@@ -602,11 +602,11 @@ skipelem(char *path, char *name)
 // If parent != 0, return the inode for the parent and copy the final
 // path element into name, which must have room for DIRSIZ bytes.
 static struct inode*
-namex(char *path, int nameiparent, char *name)
+namex(char *path, int nameiparent, char *name)// path=home/ucsc,nameiparent = 0,name = name[DIRSIZ=14]
 {
   struct inode *ip, *next;
 
-  if(*path == '/')
+  if(*path == '/')// if root
     ip = iget(ROOTDEV, ROOTINO);
   else
     ip = idup(proc->cwd);

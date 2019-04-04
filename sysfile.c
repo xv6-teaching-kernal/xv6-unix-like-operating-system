@@ -430,6 +430,7 @@ sys_getinodesize(void)
 {
   char *path;
   uint size;
+
   argstr(0, &path);
   if(sys_chdir() == -1)
     return -1;

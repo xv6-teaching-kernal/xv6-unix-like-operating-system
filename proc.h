@@ -2,6 +2,8 @@
 #define NSEGS     7 
 #define DEFAUT_PRIORITY 1
 
+struct proc* get_proc_tabel(void);
+
 // Per-CPU state
 struct cpu {
   uchar id;                    // Local APIC ID; index into cpus[] below
